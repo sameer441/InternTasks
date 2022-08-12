@@ -1,19 +1,24 @@
 package com.example.apibot;
 
-import bot.LondonStockExchange;
+import com.example.apibot.bot.LondonStockExchange;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.IOException;
-import java.util.jar.JarOutputStream;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.scheduling.annotation.EnableScheduling;
+
+@EnableScheduling
 @SpringBootApplication
 public class ApibotApplication {
 
     public static void main(String[] args) throws IOException {
         SpringApplication.run(ApibotApplication.class, args);
-        LondonStockExchange Post_Response = new LondonStockExchange();
-        Post_Response.showApiData();
+        LondonStockExchange londonobj = new LondonStockExchange();
+        londonobj.showApiData();
     }
 
 }

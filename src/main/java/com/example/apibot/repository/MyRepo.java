@@ -1,4 +1,4 @@
-package repository;
+package com.example.apibot.repository;
 
 import com.example.apibot.bot.Stock_Bot;
 import org.springframework.jdbc.core.JdbcTemplate;

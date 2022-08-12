@@ -6,7 +6,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.7.2</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/> <!-- lookup parent from com.example.apibot.repository -->
     </parent>
     <groupId>com.example</groupId>
     <artifactId>apibot</artifactId>
@@ -78,6 +78,12 @@
             <artifactId>json</artifactId>
             <version>20220320</version>
         </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.24</version>
+                <scope>provided</scope>
+            </dependency>
     </dependencies>
 
     <build>

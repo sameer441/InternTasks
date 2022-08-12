@@ -1,12 +1,14 @@
-package services;
+package com.example.apibot.services;
 
 import com.example.apibot.bot.Stock_Bot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.MyRepo;
+import com.example.apibot.repository.MyRepo;
 
 @Service
 public class Myservice {
+    public Myservice() {
+    }
 
     private MyRepo myRepo;
 
@@ -16,7 +18,6 @@ public class Myservice {
     }
 
     public void inserttoDb(Stock_Bot data) {
-        System.out.println(data);
         myRepo.savetoDb(data);
 
     }

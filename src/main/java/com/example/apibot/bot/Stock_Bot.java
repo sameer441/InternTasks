@@ -1,4 +1,4 @@
-package bot;
+package com.example.apibot.bot;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

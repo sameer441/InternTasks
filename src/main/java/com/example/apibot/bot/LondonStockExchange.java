@@ -1,32 +1,29 @@
-package bot;
+package com.example.apibot.bot;
+
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Service;
-import repository.Repository;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
+import com.example.apibot.services.Myservice;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
-@Service
+@Controller
 public class LondonStockExchange {
 
-
     @Autowired
-   private final Repository repository;
+    Myservice myservice ;
 
-    public LondonStockExchange(Repository repository) {
-        this.repository = repository;
+
+    public LondonStockExchange() {
     }
 
-
-    @Scheduled(fixedDelay = 9999999L)
     public void showApiData() throws IOException {
         fetchApiData();
     }
@@ -63,10 +60,15 @@ public class LondonStockExchange {
                 stockData.add(londonObject);
 
             }
-            stockData.forEach(obj -> repository.savetoDb(obj));
+            stockData.forEach(obj -> {
+                savetoDb(obj);
+            });
+
         }
 
     }
 
-
+    private void savetoDb(Stock_Bot obj) {
+        myservice.inserttoDb(obj);
+    }
 }
