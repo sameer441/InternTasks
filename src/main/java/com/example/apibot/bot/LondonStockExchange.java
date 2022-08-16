@@ -17,12 +17,13 @@ import java.util.List;
 @Controller
 public class LondonStockExchange {
 
+    Myservice myservice;
+
     @Autowired
-    Myservice myservice ;
-
-
-    public LondonStockExchange() {
+    public LondonStockExchange(Myservice myservice) {
+        this.myservice = myservice;
     }
+
 
     public void showApiData() throws IOException {
         fetchApiData();
@@ -60,9 +61,12 @@ public class LondonStockExchange {
                 stockData.add(londonObject);
 
             }
-            stockData.forEach(obj -> {
-                savetoDb(obj);
-            });
+            if (stockData != null && stockData.size() > 0) {
+                stockData.forEach(obj -> {
+                    savetoDb(obj);
+                });
+            }
+
 
         }
 
@@ -70,5 +74,6 @@ public class LondonStockExchange {
 
     private void savetoDb(Stock_Bot obj) {
         myservice.inserttoDb(obj);
+
     }
 }
