@@ -41,7 +41,7 @@ public class ReadDataFromExcel {
     }
 
     public void writeToFile(Workbook shet) {
-        File newFile = new File("sample.txt");
+        File newFile  = new File("sample.txt");
         int totalSheets = shet.getNumberOfSheets();
         for (int i = 0; i < 1; i++) {
             Sheet sheet = shet.getSheetAt(i);
@@ -57,8 +57,6 @@ public class ReadDataFromExcel {
                     Cell netShortingPosition = row.getCell(3);
                     String netShortPosition = netShortingPosition.toString().trim();
                     String positionDate = row.getCell(4).toString();
-                    String[] posDate = {"yyyy-MM-dd", "dd-MMM-yyyy", "dd.MM.yyyy"};
-
                     ExcelModal excelModal = new ExcelModal(positionHolder, issuerName, isin,netShortPosition,positionDate);
                     ExcelModalObj.add(excelModal);
                 } catch (Exception e) {

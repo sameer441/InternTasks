@@ -14,7 +14,9 @@ public class PracticeApplication {
         SpringApplication.run(PracticeApplication.class, args);
 
         ReadDataFromExcel DataFromExcel = new ReadDataFromExcel();
-        DataFromExcel.getDataFromExcel();
+        ReadPdfFile DataFromPdf = new ReadPdfFile();
+        DataFromPdf.ReadPdfFile();
+//        DataFromExcel.getDataFromExcel();
 
     }
 
