@@ -15,7 +15,7 @@ public class PracticeApplication {
 
         ReadDataFromExcel DataFromExcel = new ReadDataFromExcel();
         ReadPdfFile DataFromPdf = new ReadPdfFile();
-        DataFromPdf.ReadPdfFile();
+        DataFromPdf.ApiConnection();
 //        DataFromExcel.getDataFromExcel();
 
     }
